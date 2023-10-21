@@ -1,0 +1,66 @@
+Jenkins Installation
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Lauch instance
+
+sudo apt-get update
+sudo apt-get upgrade
+
+Need to install Java
+
+sudo apt update
+sudo apt install fontconfig openjdk-17-jre
+java -version
+openjdk version "17.0.8" 2023-07-18
+OpenJDK Runtime Environment (build 17.0.8+7-Debian-1deb12u1)
+OpenJDK 64-Bit Server VM (build 17.0.8+7-Debian-1deb12u1, mixed mode, sharing)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Now, you can proceed with installing Jenkins
+
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+
+
+===================================================
+
+Start Jenkins
+
+
+You can enable the Jenkins service to start at boot with the command:
+sudo systemctl enable jenkins
+
+
+You can start the Jenkins service with the command:
+sudo systemctl start jenkins
+
+
+You can check the status of the Jenkins service using the command:
+sudo systemctl status jenkins
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+After Opening
+
+After you login to Jenkins, - Run the command to copy the Jenkins Admin Password - 
+
+sudo cat /var/lib/jenkins/secrets/initial
+AdminPassword - Enter the Administrator password
+
+
+Then Press On install suggested plugin
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Create First Admin User or Skip the step [If you want to use this Jenkins instance for future use-cases as well, better to create admin user]
+
+Now jenkins is ready
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
